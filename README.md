@@ -1,16 +1,25 @@
 # login_stateful
 
-A new Flutter project.
+Flutter/Dart login_stateful example app from Udemy course - Dart and Flutter: The Complete Developer's Guide
 
-## Getting Started
+Login screen using StatefulWidgets 
 
-This project is a starting point for a Flutter application.
+---
 
-A few resources to get you started if this is your first Flutter project:
+## Install
 
-- [Lab: Write your first Flutter app](https://flutter.io/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.io/docs/cookbook)
+[Install Flutter](https://flutter.dev/docs/get-started/install)
 
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.io/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+---
+
+## Run
+
+```
+$ cd login_stateful
+```
+
+```
+$ flutter run
+```
+
+---
