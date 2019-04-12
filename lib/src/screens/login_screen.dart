@@ -6,6 +6,10 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  final _formKey = GlobalKey<FormState>();
+
+  String _email = '';
+  String _password = '';
 
   Widget emailField() {
     return TextFormField(
@@ -14,6 +18,14 @@ class _LoginScreenState extends State<LoginScreen> {
         hintText: 'you@example.com',
       ),
       keyboardType: TextInputType.emailAddress,
+      validator: (String value) {
+        if(!value.contains('@')) {
+          return 'Please enter a valid email.';
+        }
+      },
+      onSaved: (String value) {
+        _email = value;
+      },
     );
   }
 
@@ -24,6 +36,14 @@ class _LoginScreenState extends State<LoginScreen> {
         hintText: 'Password',
       ),
       obscureText: true,
+      validator: (String value) {
+        if(value.length < 6) {
+          return 'Password has to be atleast 6 characters long.';
+        }
+      },
+      onSaved: (String value) {
+        _password = value;
+      },
     );
   }
 
@@ -32,7 +52,12 @@ class _LoginScreenState extends State<LoginScreen> {
       child: Text('Login'),
       color: Colors.blue,
       textColor: Colors.white,
-      onPressed: () {}
+      onPressed: () {
+        if(_formKey.currentState.validate()) {
+          _formKey.currentState.save();
+          print('Logindata: $_email, $_password');
+        }
+      }
     );
   }
 
@@ -42,6 +67,7 @@ class _LoginScreenState extends State<LoginScreen> {
     return Container(
       margin: EdgeInsets.all(20.0),
       child: Form(
+        key: _formKey,
         child: Column(
           children: <Widget>[
             emailField(),
